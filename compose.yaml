@@ -1,0 +1,16 @@
+
+services:
+  library-manager:
+    build: .
+    container_name: library-manager
+    working_dir: /app
+    volumes:
+      - ./src:/app/src
+      - ./data:/app/data
+      - ./pom.xml:/app/pom.xml
+      - maven-cache:/root/.m2
+    stdin_open: true
+    tty: true
+
+volumes:
+  maven-cache:
