@@ -44,11 +44,11 @@ public class User {
     }
 
     public void setUserEmail(String email) {
-        if (isValidEmail(email)) {
+        if (!isValidEmail(email)) {
             throw new IllegalArgumentException("Invalid email format");
         }
 
-        email = email.trim().toLowerCase();
+        email = normalizeEmail(email);
 
         this.email = email;
     }

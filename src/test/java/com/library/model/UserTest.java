@@ -107,4 +107,12 @@ public class UserTest {
         assertEquals(user1.hashCode(), user2.hashCode());
     }
 
+    @Test 
+    public void testNormalizeEmail() {
+        String email = "JOHN@EXAMPLE.COM";
+        user.setUserEmail(email);
+        String normalizedEmail = user.getEmail();
+        assertEquals("john@example.com", normalizedEmail);
+    }
+
 }
