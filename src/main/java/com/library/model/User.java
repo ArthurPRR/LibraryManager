@@ -44,10 +44,7 @@ public class User {
     }
 
     public void setUserEmail(String email) {
-        if (email == null || email.isBlank()) {
-            throw new IllegalArgumentException("Email cannot be null or blank");
-        }
-        if (!email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
+        if (isValidEmail(email)) {
             throw new IllegalArgumentException("Invalid email format");
         }
 
