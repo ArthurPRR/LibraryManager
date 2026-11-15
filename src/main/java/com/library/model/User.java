@@ -7,16 +7,18 @@ public class User {
     private String firstName;
     private String lastName;
 
-    public User(UUID userId, String name, String email, String lastName) {
-        if (userId == null || name == null || lastName == null) {
+    public User(UUID userId, String firstName, String lastName, String email) {
+        if (userId == null || firstName == null || lastName == null) {
             throw new IllegalArgumentException("User parameters cannot be null");
         }
+        System.out.println("Creating user with email: " + email + ", firstName: " + firstName + ", lastName: " + lastName);
 
-        if (name.isBlank() || lastName.isBlank()) {
+        if (firstName.isBlank() || lastName.isBlank()) {
             throw new IllegalArgumentException("User parameters cannot be blank");
         }
 
         if (!isValidEmail(email)) {
+            System.out.println("Invalid email format: " + email);
             throw new IllegalArgumentException("Invalid email format");
         }
         
@@ -24,7 +26,7 @@ public class User {
 
         this.userId = userId;
         this.email = email;
-        this.firstName = name;
+        this.firstName = firstName;
         this.lastName = lastName;
     }
 

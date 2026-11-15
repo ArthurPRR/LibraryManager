@@ -12,7 +12,7 @@ import com.library.exception.BookNotExistingException;
 
 public class BookRepository {
 
-    final private Map<UUID, Book> books = new HashMap<>();
+    private final Map<UUID, Book> books = new HashMap<>();
 
     public BookRepository() {
     }

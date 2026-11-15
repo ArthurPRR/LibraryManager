@@ -18,12 +18,12 @@ public class UserTest {
 
     @BeforeEach
     public void setUp() {
-        this.user = new User(UUID.randomUUID(), "John", "john@example.com", "Doe");
+        this.user = new User(UUID.randomUUID(), "John", "Doe", "john@example.com");
     }
     
     @Test
     public void testUserCreation() {
-        User user = new User(UUID.randomUUID(), "John", "john@example.com", "Doe");
+        User user = new User(UUID.randomUUID(), "John", "Doe", "john@example.com");
         assertEquals("John", user.getFirstName());
         assertEquals("john@example.com", user.getEmail());
         assertEquals("Doe", user.getLastName());
@@ -87,23 +87,23 @@ public class UserTest {
     @Test
     public void testSameUserIdEquals() {
         UUID userId = UUID.randomUUID();
-        User user1 = new User(userId, "John", "john@example.com", "Doe");
-        User user2 = new User(userId, "Jane", "jane@example.com", "Smith");
+        User user1 = new User(userId, "John", "Doe", "john@example.com");
+        User user2 = new User(userId, "Jane", "Smith", "jane@example.com");
         assertEquals(user1, user2);
     }
 
     @Test
     public void testDifferentUserIdNotEquals() {
-        User user1 = new User(UUID.randomUUID(), "John", "john@example.com", "Doe");
-        User user2 = new User(UUID.randomUUID(), "Jane", "jane@example.com", "Smith");
+        User user1 = new User(UUID.randomUUID(), "John", "Doe", "john@example.com");
+        User user2 = new User(UUID.randomUUID(), "Jane", "Smith", "jane@example.com");
         assertNotEquals(user1, user2);
     }
 
     @Test
     public void testHashCodeConsistency() {
         UUID userId = UUID.randomUUID();
-        User user1 = new User(userId, "John", "john@example.com", "Doe");
-        User user2 = new User(userId, "Jane", "jane@example.com", "Smith");
+        User user1 = new User(userId, "John", "Doe", "john@example.com");
+        User user2 = new User(userId, "Jane", "Smith", "jane@example.com");
         assertEquals(user1.hashCode(), user2.hashCode());
     }
 
